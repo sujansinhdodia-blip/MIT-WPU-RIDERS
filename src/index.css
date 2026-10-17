@@ -1,0 +1,101 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer base {
+  :root {
+    --color-primary: 255 51 75;
+    --color-accent: 255 107 0;
+    --color-blue: 26 86 219;
+  }
+
+  html {
+    color-scheme: dark;
+    scroll-behavior: smooth;
+  }
+
+  /* Custom Motorsport Dark Scrollbar */
+  ::-webkit-scrollbar {
+    width: 8px;
+    height: 8px;
+  }
+  ::-webkit-scrollbar-track {
+    background: #090a0f;
+  }
+  ::-webkit-scrollbar-thumb {
+    background: #252b3b;
+    border-radius: 4px;
+    border: 1px solid rgba(255, 51, 75, 0.2);
+  }
+  ::-webkit-scrollbar-thumb:hover {
+    background: #ff334b;
+  }
+}
+
+/* Custom Glassmorphic and Motorsport Effects */
+.glass-panel {
+  background: rgba(17, 19, 26, 0.75);
+  backdrop-filter: blur(16px);
+  -webkit-backdrop-filter: blur(16px);
+  border: 1px solid rgba(255, 255, 255, 0.08);
+}
+
+.glass-panel-glow {
+  background: rgba(17, 19, 26, 0.85);
+  backdrop-filter: blur(20px);
+  -webkit-backdrop-filter: blur(20px);
+  border: 1px solid rgba(255, 51, 75, 0.2);
+  box-shadow: 0 0 30px -10px rgba(255, 51, 75, 0.25);
+}
+
+.racing-gradient-text {
+  background: linear-gradient(135deg, #ffffff 30%, #ff6b00 80%, #ff334b 100%);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+}
+
+.gold-gradient-text {
+  background: linear-gradient(135deg, #fff275 0%, #ffd700 50%, #ff9e00 100%);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+}
+
+.blue-gradient-text {
+  background: linear-gradient(135deg, #ffffff 40%, #60a5fa 75%, #1d4ed8 100%);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+}
+
+.carbon-texture {
+  background-color: #0d0f15;
+  background-image: 
+    linear-gradient(45deg, rgba(255, 255, 255, 0.03) 25%, transparent 25%), 
+    linear-gradient(-45deg, rgba(255, 255, 255, 0.03) 25%, transparent 25%), 
+    linear-gradient(45deg, transparent 75%, rgba(255, 255, 255, 0.03) 75%), 
+    linear-gradient(-45deg, transparent 75%, rgba(255, 255, 255, 0.03) 75%);
+  background-size: 16px 16px;
+  background-position: 0 0, 0 8px, 8px -8px, -8px 0px;
+}
+
+/* Speed line animation */
+@keyframes speedLines {
+  0% { transform: translateY(-100%); opacity: 0; }
+  50% { opacity: 0.6; }
+  100% { transform: translateY(1000%); opacity: 0; }
+}
+
+.speed-particle {
+  position: absolute;
+  width: 1px;
+  background: linear-gradient(to bottom, transparent, rgba(255, 51, 75, 0.8), transparent);
+  animation: speedLines 3s infinite linear;
+}
+
+/* Clip-path angles for motorsport badge shapes */
+.racing-slant {
+  clip-path: polygon(12px 0%, 100% 0%, calc(100% - 12px) 100%, 0% 100%);
+}
+
+.racing-slant-left {
+  clip-path: polygon(0 0, 100% 0, calc(100% - 16px) 100%, 0 100%);
+}
