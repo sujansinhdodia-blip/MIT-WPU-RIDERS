@@ -1,0 +1,5 @@
+User-agent: *
+Allow: /
+
+# Sitemap
+Sitemap: https://sujansinhdodia-blip.github.io/MIT-WPU-RIDERS/sitemap.xml
