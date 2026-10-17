@@ -6,11 +6,12 @@
 
 ---
 
-### 🌐 Live Deployment
-🔗 **[https://sujansinhdodia-blip.github.io/MIT-WPU-RIDERS/](https://sujansinhdodia-blip.github.io/MIT-WPU-RIDERS/)**
+### 🌐 Live Production URL (Vercel)
+🔗 **[https://mit-wpu-riders.vercel.app](https://mit-wpu-riders.vercel.app)**
 
-[![Deploy to GitHub Pages](https://github.com/sujansinhdodia-blip/MIT-WPU-RIDERS/actions/workflows/deploy.yml/badge.svg)](https://github.com/sujansinhdodia-blip/MIT-WPU-RIDERS/actions/workflows/deploy.yml)
-[![Live Site](https://img.shields.io/badge/Live%20Site-sujansinhdodia--blip.github.io%2FMIT--WPU--RIDERS%2F-ff3333?style=flat&logo=githubpages&logoColor=white)](https://sujansinhdodia-blip.github.io/MIT-WPU-RIDERS/)
+[![Vercel Deployment](https://img.shields.io/badge/Deployed%20on-Vercel-000000?style=flat&logo=vercel&logoColor=white)](https://mit-wpu-riders.vercel.app)
+[![Live Site](https://img.shields.io/badge/Live%20Demo-mit--wpu--riders.vercel.app-ff3333?style=flat&logo=vercel&logoColor=white)](https://mit-wpu-riders.vercel.app)
+[![GitHub Pages](https://img.shields.io/badge/GitHub%20Pages-Backup%20Mirror-blue?style=flat&logo=github)](https://sujansinhdodia-blip.github.io/MIT-WPU-RIDERS/)
 [![Vite](https://img.shields.io/badge/Built%20with-Vite-646CFF?logo=vite&logoColor=white)](https://vitejs.dev/)
 [![React](https://img.shields.io/badge/React-18-61DAFB?logo=react&logoColor=black)](https://react.dev/)
 [![TypeScript](https://img.shields.io/badge/TypeScript-5.0-3178C6?logo=typescript&logoColor=white)](https://www.typescriptlang.org/)
