@@ -247,7 +247,7 @@ export const JoinSection: React.FC<{ onOpenJoinModal: () => void }> = ({ onOpenJ
 
       {/* Background Cinematic Image */}
       <div className="absolute inset-0 z-0 opacity-20">
-        <img src="/assets/club/hero-convoy.jpg" alt="" className="w-full h-full object-cover object-center" />
+        <img src={CLUB_INFO.heroImage} alt="MIT-WPU Riders Convoy" className="w-full h-full object-cover object-center" />
         <div className="absolute inset-0 bg-gradient-to-b from-dark-950/80 via-dark-950/50 to-dark-950" />
       </div>
 

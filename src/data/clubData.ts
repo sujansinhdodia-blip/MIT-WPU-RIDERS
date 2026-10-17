@@ -1,5 +1,13 @@
 import { RideEvent, GalleryItem, TeamMember, StoryHighlight, InstagramPost, ClubStats } from '../types';
 
+export const asset = (path: string): string => {
+  if (!path) return '';
+  if (path.startsWith('http://') || path.startsWith('https://')) return path;
+  const clean = path.startsWith('/') ? path.slice(1) : path;
+  const base = import.meta.env.BASE_URL || '/';
+  return base.endsWith('/') ? `${base}${clean}` : `${base}/${clean}`;
+};
+
 export const CLUB_INFO = {
   name: "MIT-WPU RIDERS",
   tagline: "Ride Beyond Limits. Ride Together.",
@@ -12,11 +20,11 @@ export const CLUB_INFO = {
   youtubeUrl: "https://www.youtube.com/@mitwpu.riders",
   email: "riders@mitwpu.edu.in",
   phone: "+91 20 7117 7104",
-  logoUrl: "/assets/club/logo-crest.png",
-  heroImage: "/assets/club/hero-convoy.jpg",
-  awardImage: "/assets/club/bosch-award-ceremony.png",
-  safetyImage: "/assets/club/campus-safety.jpg",
-  dgrImage: "/assets/club/dgr-event.jpg",
+  logoUrl: asset("/assets/club/logo-crest.png"),
+  heroImage: asset("/assets/club/hero-convoy.jpg"),
+  awardImage: asset("/assets/club/bosch-award-ceremony.png"),
+  safetyImage: asset("/assets/club/campus-safety.jpg"),
+  dgrImage: asset("/assets/club/dgr-event.jpg"),
 };
 
 export const INITIAL_STATS: ClubStats = {
@@ -31,37 +39,37 @@ export const STORY_HIGHLIGHTS: StoryHighlight[] = [
   {
     id: "hl-1",
     title: "Achievements",
-    imageUrl: "/assets/club/highlight-achievements.png",
+    imageUrl: asset("/assets/club/highlight-achievements.png"),
     count: 12,
   },
   {
     id: "hl-2",
     title: "Events & DGR",
-    imageUrl: "/assets/club/highlight-events.png",
+    imageUrl: asset("/assets/club/highlight-events.png"),
     count: 18,
   },
   {
     id: "hl-3",
     title: "Badge Ceremony",
-    imageUrl: "/assets/club/highlight-badge-ceremony.png",
+    imageUrl: asset("/assets/club/highlight-badge-ceremony.png"),
     count: 24,
   },
   {
     id: "hl-4",
     title: "Ride Moments",
-    imageUrl: "/assets/club/highlight-ride-moments.png",
+    imageUrl: asset("/assets/club/highlight-ride-moments.png"),
     count: 45,
   },
   {
     id: "hl-5",
     title: "1st Ride",
-    imageUrl: "/assets/club/highlight-first-ride.png",
+    imageUrl: asset("/assets/club/highlight-first-ride.png"),
     count: 15,
   },
   {
     id: "hl-6",
     title: "Inauguration",
-    imageUrl: "/assets/club/highlight-inauguration.png",
+    imageUrl: asset("/assets/club/highlight-inauguration.png"),
     count: 19,
   },
 ];
@@ -78,11 +86,11 @@ export const UPCOMING_RIDE: RideEvent = {
   difficulty: "Moderate",
   shortDescription: "Our signature sunrise chase through the misty twists of Old Mumbai-Pune Highway, culminating at Tiger Point with breakfast and brotherhood.",
   fullDescription: "Join the pack for an early dawn ride starting from MIT-WPU Gate 3. We cruise in staggered formation through Dehu Road, climbing the scenic ghats to Lonavala just as the first sun rays break over the Sahyadris. Includes mandatory pre-ride briefing, roadside safety check, and team breakfast at Lonavala.",
-  coverImage: "/assets/club/hero-convoy.jpg",
+  coverImage: asset("/assets/club/hero-convoy.jpg"),
   galleryImages: [
-    "/assets/club/hero-convoy.jpg",
-    "/assets/club/campus-safety.jpg",
-    "/assets/club/dgr-event.jpg"
+    asset("/assets/club/hero-convoy.jpg"),
+    asset("/assets/club/campus-safety.jpg"),
+    asset("/assets/club/dgr-event.jpg")
   ],
   routeHighlights: [
     "MIT-WPU Campus Flag-off",
@@ -117,8 +125,8 @@ export const RIDES_AND_EVENTS: RideEvent[] = [
     difficulty: "Challenging",
     shortDescription: "Carving wet canyon curves through cascading waterfalls and dense mountain fog in the heart of the Sahyadri mountains.",
     fullDescription: "A test of wet-weather handling, throttle discipline, and formation communication. Riders navigated the scenic water streams and lush green curves of Tamhini with zero incidents.",
-    coverImage: "/assets/club/hero-convoy.jpg",
-    galleryImages: ["/assets/club/hero-convoy.jpg"],
+    coverImage: asset("/assets/club/hero-convoy.jpg"),
+    galleryImages: [asset("/assets/club/hero-convoy.jpg")],
     routeHighlights: ["Chandani Chowk", "Pirangut Ghat", "Mulshi Dam Vista", "Tamhini Canyon"],
     pace: "55 - 70 km/h",
     meetingPoint: "MIT-WPU Gate 3",
@@ -138,8 +146,8 @@ export const RIDES_AND_EVENTS: RideEvent[] = [
     difficulty: "Easy",
     shortDescription: "Riding dapper for men's mental health and cancer awareness alongside hundreds of classic cafe racers and scramblers.",
     fullDescription: "MIT-WPU Riders partnered with the global DGR initiative. Dressed in dapper tweed jackets and cravats, our student convoy rode in unison through iconic Pune heritage streets, representing academic excellence and social impact.",
-    coverImage: "/assets/club/dgr-event.jpg",
-    galleryImages: ["/assets/club/dgr-event.jpg", "/assets/club/bosch-award-ceremony.png"],
+    coverImage: asset("/assets/club/dgr-event.jpg"),
+    galleryImages: [asset("/assets/club/dgr-event.jpg"), asset("/assets/club/bosch-award-ceremony.png")],
     routeHighlights: ["Camp Area", "FC Road", "Koregaon Park", "MIT-WPU Peace Dome"],
     pace: "40 - 50 km/h (Heritage Cruise)",
     meetingPoint: "MIT World Peace Dome",
@@ -148,66 +156,66 @@ export const RIDES_AND_EVENTS: RideEvent[] = [
     registrationOpen: false,
   },
   {
-    id: "bosch-safety-drive",
-    title: "Bosch Road Safety Awareness Rally",
+    id: "bosch-safety-symposium",
+    title: "Bosch Road Safety Conclave & Ride",
     category: "Road Safety",
-    location: "Pune Metropolitan Area",
-    destination: "Bosch Tech Park to MIT-WPU",
-    date: "July 28, 2026",
+    location: "MIT-WPU Campus",
+    destination: "MIT-WPU Auditorium & Pune Outskirts",
+    date: "August 2026",
     distance: "60 km",
-    duration: "5 Hours",
+    duration: "6 Hours",
     difficulty: "Easy",
-    shortDescription: "City-wide road discipline advocacy demonstrating ATGATT principles and formation signaling to thousands of commuters.",
-    fullDescription: "In celebration of our national recognition, MIT-WPU Riders led a prominent convoy promoting defensive riding, lane discipline, and the critical importance of proper protective gear.",
-    coverImage: "/assets/club/campus-safety.jpg",
-    galleryImages: ["/assets/club/campus-safety.jpg", "/assets/club/bosch-award-ceremony.png"],
-    routeHighlights: ["Paud Road", "Shivajinagar", "Bhosari Tech Hub", "MIT-WPU Campus"],
-    pace: "45 km/h",
-    meetingPoint: "MIT-WPU Central Plaza",
-    departureTime: "08:00 AM",
-    mandatoryGear: ["High-visibility Vest", "Certified Helmet", "Full Riding Gear"],
+    shortDescription: "Interactive road safety workshops with Bosch automotive safety engineers followed by a disciplined flag-off convoy.",
+    fullDescription: "Commemorating our recognition as India's 1st Institute-Level Riding Club. Keynotes by Bosch technical directors, ABS/TCS brake demonstration, and formal distribution of club rider badges.",
+    coverImage: asset("/assets/club/campus-safety.jpg"),
+    galleryImages: [asset("/assets/club/campus-safety.jpg"), asset("/assets/club/bosch-award-ceremony.png")],
+    routeHighlights: ["MIT-WPU Campus Flag-off", "Bavdhan Highway", "Pashan Lake Loop"],
+    pace: "50 - 65 km/h",
+    meetingPoint: "MIT-WPU Main Auditorium",
+    departureTime: "09:00 AM",
+    mandatoryGear: ["Full Protective Armor", "Riding Gloves", "Approved Helmet"],
     registrationOpen: false,
   },
   {
-    id: "mahabaleshwar-highland-tour",
-    title: "Mahabaleshwar Highland Tour",
+    id: "coastal-konkan-tour",
+    title: "Konkan Coastal Odyssey (Diveagar)",
     category: "Long Distance",
-    location: "Satara District",
-    destination: "Arthur's Seat, Mahabaleshwar",
-    date: "March 14, 2026",
-    distance: "260 km",
-    duration: "9 Hours",
-    difficulty: "Moderate",
-    shortDescription: "An endurance expedition ascending the Khambatki and Pasarni Ghats into the cool strawberry plateaus.",
-    fullDescription: "Over 35 motorcycles embarked on a seamless long-haul pack ride. Perfect cornering techniques, fuel stops synchronization, and teamwork in the steep hairpin switchbacks.",
-    coverImage: "/assets/club/hero-convoy.jpg",
-    galleryImages: ["/assets/club/hero-convoy.jpg"],
-    routeHighlights: ["NH48 Highway", "Khambatki Tunnel", "Wai Ghats", "Pasarni Hairpins"],
-    pace: "75 - 90 km/h",
-    meetingPoint: "MIT-WPU Gate 1",
-    departureTime: "05:00 AM",
-    mandatoryGear: ["Full Riding Suit/Jacket", "Knee Guards", "Luggage Harness"],
-    registrationOpen: false,
+    location: "Raigad District, Maharashtra",
+    destination: "Diveagar Beach & Shrivardhan",
+    date: "November 28-29, 2026",
+    distance: "360 km (2 Days)",
+    duration: "2 Days",
+    difficulty: "Challenging",
+    shortDescription: "Our flagship multi-day coastal tour across Varandha Ghat, descending into pristine Arabian Sea shores with overnight camping.",
+    fullDescription: "Two days of endurance touring, coastal breeze, fresh seafood, and campfire camaraderie under starry skies. Strict luggage strapping guidelines, backup service vehicle with puncture kits and tools.",
+    coverImage: asset("/assets/club/hero-convoy.jpg"),
+    galleryImages: [asset("/assets/club/hero-convoy.jpg")],
+    routeHighlights: ["Bhor", "Varandha Ghat descent", "Mahad", "Mangaon", "Diveagar Beach"],
+    pace: "65 - 80 km/h",
+    meetingPoint: "MIT-WPU Gate 3",
+    departureTime: "05:00 AM Sharp",
+    mandatoryGear: ["Touring Luggage System", "Rain Liner", "Bikers First Aid Kit"],
+    registrationOpen: true,
   },
   {
-    id: "freshers-orientation-campus-run",
-    title: "Freshers Orientation & Campus Ride",
-    category: "University",
-    location: "MIT-WPU Campus, Pune",
-    destination: "MIT Peace Dome Circuit",
-    date: "August 24, 2026",
-    distance: "25 km",
-    duration: "3 Hours",
+    id: "freshers-orientation-ride",
+    title: "Freshers Welcome & City Circuit",
+    category: "Weekend",
+    location: "Pune City & Khadakwasla",
+    destination: "Khadakwasla Dam Backwaters",
+    date: "September 06, 2026",
+    distance: "55 km",
+    duration: "4 Hours",
     difficulty: "Easy",
-    shortDescription: "Welcoming batch 2026 into India's premier student riding brotherhood with live bike showcases and badge awards.",
-    fullDescription: "Hundreds of freshers gathered at the university amphitheatre to experience the roaring spirit of MIT-WPU Riders. Showcasing sportsbikes, tourers, cruisers, and interactive gear exhibitions.",
-    coverImage: "/assets/club/post-freshers.png",
-    galleryImages: ["/assets/club/post-freshers.png", "/assets/club/bosch-award-ceremony.png"],
-    routeHighlights: ["MIT Peace Dome", "Engineering Quad", "Paud Road Loop"],
-    pace: "30 - 40 km/h",
-    meetingPoint: "MIT Amphitheatre",
-    departureTime: "04:30 PM",
-    mandatoryGear: ["Helmet", "Riding Shoes", "MIT ID Card"],
+    shortDescription: "Introducing the new 2026 batch to the art of group riding, staggered formations, and the MIT-WPU Riders brotherhood.",
+    fullDescription: "Designed for riders who are new to pack riding. Veteran ride captains shadowed beginners, demonstrating cornering lines, safe overtaking protocols, and hand signals.",
+    coverImage: asset("/assets/club/post-freshers.png"),
+    galleryImages: [asset("/assets/club/post-freshers.png"), asset("/assets/club/bosch-award-ceremony.png")],
+    routeHighlights: ["Paud Road", "Karve Road", "Sinhagad Road", "Khadakwasla Backwaters"],
+    pace: "45 - 60 km/h",
+    meetingPoint: "MIT-WPU Gate 1",
+    departureTime: "06:30 AM",
+    mandatoryGear: ["Helmet with Visor", "Sturdy Riding Jacket", "Gloves"],
     registrationOpen: false,
   }
 ];
@@ -217,7 +225,7 @@ export const GALLERY_ITEMS: GalleryItem[] = [
     id: "gal-1",
     title: "Official Bosch & Radon Riders Award",
     category: "Events",
-    imageUrl: "/assets/club/bosch-award-ceremony.png",
+    imageUrl: asset("/assets/club/bosch-award-ceremony.png"),
     date: "August 2026",
     location: "MIT-WPU Pune",
     caption: "Honoured with India's 1st Institute-Level Riding Club Award presented by Bosch & Radon Riders."
@@ -226,7 +234,7 @@ export const GALLERY_ITEMS: GalleryItem[] = [
     id: "gal-2",
     title: "Dawn Convoy in the Sahyadris",
     category: "Rides",
-    imageUrl: "/assets/club/hero-convoy.jpg",
+    imageUrl: asset("/assets/club/hero-convoy.jpg"),
     date: "2026",
     location: "Lonavala - Tamhini Ghat",
     caption: "Pack riding at sunrise. Brotherhood, precision throttle control, and sheer passion."
@@ -235,7 +243,7 @@ export const GALLERY_ITEMS: GalleryItem[] = [
     id: "gal-3",
     title: "Distinguished Gentleman's Ride",
     category: "Events",
-    imageUrl: "/assets/club/dgr-event.jpg",
+    imageUrl: asset("/assets/club/dgr-event.jpg"),
     date: "May 2026",
     location: "Pune Chapter",
     caption: "Riding dapper for prostate cancer and men's health awareness. Over 80 riders in classic attire."
@@ -244,7 +252,7 @@ export const GALLERY_ITEMS: GalleryItem[] = [
     id: "gal-4",
     title: "Campus Gate Safety Inspection",
     category: "Bikes",
-    imageUrl: "/assets/club/campus-safety.jpg",
+    imageUrl: asset("/assets/club/campus-safety.jpg"),
     date: "2026",
     location: "MIT-WPU Gate 3",
     caption: "Strict ATGATT compliance before rolling out. Safety is our non-negotiable pride."
@@ -253,7 +261,7 @@ export const GALLERY_ITEMS: GalleryItem[] = [
     id: "gal-5",
     title: "Batch of 2026 Orientation",
     category: "Memories",
-    imageUrl: "/assets/club/post-freshers.png",
+    imageUrl: asset("/assets/club/post-freshers.png"),
     date: "August 2026",
     location: "MIT-WPU Campus",
     caption: "Find your people. Fuel your passion. More than a club — it's a lifelong family."
@@ -262,7 +270,7 @@ export const GALLERY_ITEMS: GalleryItem[] = [
     id: "gal-6",
     title: "The Official Club Crest",
     category: "Memories",
-    imageUrl: "/assets/club/logo-crest.png",
+    imageUrl: asset("/assets/club/logo-crest.png"),
     date: "Est. 2025",
     location: "MIT-WPU Pune",
     caption: "The official emblem of MIT-WPU Riders. Est. 2025."
@@ -271,7 +279,7 @@ export const GALLERY_ITEMS: GalleryItem[] = [
     id: "gal-7",
     title: "Sahyadri Hairpin Carving",
     category: "Rides",
-    imageUrl: "/assets/club/hero-convoy.jpg",
+    imageUrl: asset("/assets/club/hero-convoy.jpg"),
     date: "July 2026",
     location: "Western Ghats",
     caption: "Staggered formation through sweeping mountain twists."
@@ -280,7 +288,7 @@ export const GALLERY_ITEMS: GalleryItem[] = [
     id: "gal-8",
     title: "Fellowship of the Throttle",
     category: "Riders",
-    imageUrl: "/assets/club/dgr-event.jpg",
+    imageUrl: asset("/assets/club/dgr-event.jpg"),
     date: "2026",
     location: "Pune City",
     caption: "Cross-department unity across Mechanical, Computer, Civil, and Management students."
@@ -297,7 +305,7 @@ export const TEAM_MEMBERS: TeamMember[] = [
     department: "Mechanical Engineering",
     year: "Final Year",
     instagram: "@vishal.officiial",
-    photoUrl: "/assets/club/bosch-award-ceremony.png",
+    photoUrl: asset("/assets/club/bosch-award-ceremony.png"),
     quote: "We didn't just build a bike club; we founded a culture of discipline, respect, and fearless adventure on two wheels."
   },
   {
@@ -309,7 +317,7 @@ export const TEAM_MEMBERS: TeamMember[] = [
     department: "Computer Science",
     year: "Third Year",
     instagram: "@arjun_rides_pune",
-    photoUrl: "/assets/club/campus-safety.jpg",
+    photoUrl: asset("/assets/club/campus-safety.jpg"),
     quote: "A ride is only as good as the safety of the last rider in the pack."
   },
   {
@@ -321,7 +329,7 @@ export const TEAM_MEMBERS: TeamMember[] = [
     department: "Design & Media Studies",
     year: "Final Year",
     instagram: "@rhea_onwheels",
-    photoUrl: "/assets/club/dgr-event.jpg",
+    photoUrl: asset("/assets/club/dgr-event.jpg"),
     quote: "ATGATT isn't a slogan; it's our golden protocol. Dress for the slide, not the ride."
   },
   {
@@ -333,7 +341,7 @@ export const TEAM_MEMBERS: TeamMember[] = [
     department: "School of Mechanical Engineering",
     year: "Faculty",
     instagram: "@mitwpu.riders",
-    photoUrl: "/assets/club/bosch-award-ceremony.png",
+    photoUrl: asset("/assets/club/bosch-award-ceremony.png"),
     quote: "MIT-WPU Riders showcases how student passion, when guided by safety and leadership, achieves national prestige."
   },
   {
@@ -345,7 +353,7 @@ export const TEAM_MEMBERS: TeamMember[] = [
     department: "Automobile Engineering",
     year: "Third Year",
     instagram: "@tanmay_apex",
-    photoUrl: "/assets/club/hero-convoy.jpg",
+    photoUrl: asset("/assets/club/hero-convoy.jpg"),
     quote: "No rider left behind. That is the foundational oath of MIT-WPU Riders."
   },
   {
@@ -357,7 +365,7 @@ export const TEAM_MEMBERS: TeamMember[] = [
     department: "Media & Communication",
     year: "Second Year",
     instagram: "@ananya_captures",
-    photoUrl: "/assets/club/post-freshers.png",
+    photoUrl: asset("/assets/club/post-freshers.png"),
     quote: "Documenting raw emotions, roaring engines, and brotherhood across every mile."
   }
 ];
@@ -365,7 +373,7 @@ export const TEAM_MEMBERS: TeamMember[] = [
 export const INSTAGRAM_POSTS: InstagramPost[] = [
   {
     id: "post-1",
-    imageUrl: "/assets/club/bosch-award-ceremony.png",
+    imageUrl: asset("/assets/club/bosch-award-ceremony.png"),
     caption: "A MILESTONE WORTH RIDING FOR. 🏆 Proud to announce that MIT-WPU Riders Club has been honoured with India's 1st Institute-Level Riding Club Award by Bosch & Radon Riders! #MITWPURiders #FirstInIndia",
     likes: 317,
     comments: 13,
@@ -374,7 +382,7 @@ export const INSTAGRAM_POSTS: InstagramPost[] = [
   },
   {
     id: "post-2",
-    imageUrl: "/assets/club/hero-convoy.jpg",
+    imageUrl: asset("/assets/club/hero-convoy.jpg"),
     caption: "Turning miles into memories ✨ Brotherhood • Ride Therapy • Sahyadri Escapades. Staggered formation through dawn mist. #RideTogether #SahyadriChasers",
     likes: 489,
     comments: 27,
@@ -384,7 +392,7 @@ export const INSTAGRAM_POSTS: InstagramPost[] = [
   },
   {
     id: "post-3",
-    imageUrl: "/assets/club/post-freshers.png",
+    imageUrl: asset("/assets/club/post-freshers.png"),
     caption: "FIND YOUR PEOPLE. FUEL YOUR PASSION. 🏍️ MIT-WPU Riders invites all freshers. This is more than a club — it's a family. Orientation 2026! #MITWPUFreshers",
     likes: 412,
     comments: 34,
@@ -394,7 +402,7 @@ export const INSTAGRAM_POSTS: InstagramPost[] = [
   },
   {
     id: "post-4",
-    imageUrl: "/assets/club/dgr-event.jpg",
+    imageUrl: asset("/assets/club/dgr-event.jpg"),
     caption: "Distinguished Gentleman's Ride Pune Chapter. Dapper style, vintage machines, and a noble cause. #DGRPune #GentlemansRide #MITWPURiders",
     likes: 524,
     comments: 42,
@@ -403,7 +411,7 @@ export const INSTAGRAM_POSTS: InstagramPost[] = [
   },
   {
     id: "post-5",
-    imageUrl: "/assets/club/campus-safety.jpg",
+    imageUrl: asset("/assets/club/campus-safety.jpg"),
     caption: "Pre-ride routine at Gate 3. Mirrors checked, tire pressures dialed, visors clean. ATGATT always. #SafetyFirst #ResponsibleRiding",
     likes: 388,
     comments: 19,
